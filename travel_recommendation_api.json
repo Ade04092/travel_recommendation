@@ -1,40 +1,40 @@
 {
-  "places": [
+  "beaches": [
     {
-      "type": "beach",
+      "name": "Bora Bora Beach",
+      "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+      "description": "Beautiful tropical beach with crystal clear water."
+    },
+    {
       "name": "Maldives Beach",
-      "imagesrc": "images/maldives.jpg",
-      "description": "A tropical paradise with white sands and clear waters."
-    },
+      "imageUrl": "https://images.unsplash.com/photo-1493558103817-58b2924bce98",
+      "description": "Relax on white sand beaches and enjoy paradise."
+    }
+  ],
+
+  "temples": [
     {
-      "type": "beach",
-      "name": "Bondi Beach",
-      "imagesrc": "images/bondi.jpg",
-      "description": "Famous Australian beach perfect for surfing and sunbathing."
-    },
-    {
-      "type": "temple",
-      "name": "Angkor Wat",
-      "imagesrc": "images/angkor.jpg",
-      "description": "Ancient temple complex in Cambodia, UNESCO World Heritage site."
-    },
-    {
-      "type": "temple",
       "name": "Golden Temple",
-      "imagesrc": "images/golden_temple.jpg",
-      "description": "Sacred Sikh temple in Amritsar, India."
+      "imageUrl": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da",
+      "description": "Historic temple with beautiful architecture."
     },
     {
-      "type": "country",
+      "name": "Wat Arun Temple",
+      "imageUrl": "https://images.unsplash.com/photo-1563492065599-3520f775eeed",
+      "description": "Famous riverside temple in Thailand."
+    }
+  ],
+
+  "countries": [
+    {
       "name": "Japan",
-      "imagesrc": "images/japan.jpg",
-      "description": "Experience modern cities, ancient temples, and beautiful cherry blossoms."
+      "imageUrl": "https://images.unsplash.com/photo-1549692520-acc6669e2f0c",
+      "description": "Experience modern cities and ancient culture."
     },
     {
-      "type": "country",
       "name": "Italy",
-      "imagesrc": "images/italy.jpg",
-      "description": "Enjoy historical sites, Mediterranean cuisine, and scenic landscapes."
+      "imageUrl": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9",
+      "description": "Discover historic landmarks and delicious cuisine."
     }
   ]
 }

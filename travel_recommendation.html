@@ -2,29 +2,232 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel Recommendation</title>
-  <link rel="stylesheet" href="travel_recommendation.css">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      min-height:100vh;
+      color:white;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 40px;
+      background:rgba(0,0,0,0.7);
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:20px;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    .search-bar{
+      display:flex;
+      gap:10px;
+    }
+
+    .search-bar input{
+      padding:10px;
+      border:none;
+      border-radius:5px;
+      width:220px;
+    }
+
+    .search-bar button{
+      padding:10px 15px;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .hero{
+      padding:100px 50px;
+      max-width:700px;
+    }
+
+    .hero h1{
+      font-size:60px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:20px;
+      line-height:1.6;
+      margin-bottom:25px;
+    }
+
+    .hero button{
+      padding:15px 25px;
+      background:#ff9800;
+      border:none;
+      border-radius:5px;
+      color:white;
+      font-size:18px;
+      cursor:pointer;
+    }
+
+    #results{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:20px;
+      padding:40px;
+    }
+
+    .card{
+      background:white;
+      color:black;
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:15px;
+    }
+
+    section{
+      padding:60px 40px;
+      background:rgba(0,0,0,0.7);
+      margin:20px;
+      border-radius:10px;
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+      max-width:500px;
+    }
+
+    form input,
+    form textarea{
+      padding:12px;
+      border:none;
+      border-radius:5px;
+    }
+
+    form button{
+      padding:12px;
+      border:none;
+      background:#ff9800;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+      font-size:16px;
+    }
+  </style>
 </head>
+
 <body>
+
+  <!-- Navbar -->
   <nav>
-    <a href="travel_recommendation.html">Home</a>
-    <a href="about_us.html">About Us</a>
-    <a href="contact_us.html">Contact Us</a>
+
+    <h2>TravelBloom</h2>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search destinations">
+      <button id="searchBtn">Search</button>
+      <button id="clearBtn">Clear</button>
+    </div>
+
   </nav>
 
-  <header>
-    <h1>Explore the World and Discover Your Next Adventure</h1>
-    <p>Search for destinations by keyword: beach, temple, or country.</p>
-  </header>
+  <!-- Home Section -->
+  <section class="hero" id="home">
 
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Enter keyword...">
-    <button id="searchBtn">Search</button>
-    <button id="clearBtn">Clear</button>
-  </div>
+    <h1>EXPLORE DREAM DESTINATIONS</h1>
 
-  <div id="results" class="results-grid"></div>
+    <p>
+      Discover beautiful beaches, amazing temples,
+      and exciting countries around the world.
+      Start your next adventure with us today.
+    </p>
+
+    <button>Book Now</button>
+
+  </section>
+
+  <!-- Results -->
+  <div id="results"></div>
+
+  <!-- About Us -->
+  <section id="about">
+
+    <h2>About Us</h2>
+    <br>
+
+    <p>
+      We are a travel recommendation company dedicated
+      to helping travelers discover amazing destinations
+      worldwide.
+    </p>
+
+    <br><br>
+
+    <h3>Our Team</h3>
+    <br>
+
+    <p><strong>John Smith</strong> - Travel Consultant</p>
+    <p><strong>Sarah Johnson</strong> - Destination Expert</p>
+    <p><strong>Michael Lee</strong> - Customer Support</p>
+
+  </section>
+
+  <!-- Contact Us -->
+  <section id="contact">
+
+    <h2>Contact Us</h2>
+    <br>
+
+    <form>
+
+      <input type="text" placeholder="Your Name" required>
+
+      <input type="email" placeholder="Your Email" required>
+
+      <textarea rows="6" placeholder="Your Message"></textarea>
+
+      <button type="submit">Submit</button>
+
+    </form>
+
+  </section>
 
   <script src="travel_recommendation.js"></script>
+
 </body>
 </html>

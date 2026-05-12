@@ -1,51 +1,74 @@
-const searchBtn = document.getElementById("searchBtn");
-const clearBtn = document.getElementById("clearBtn");
-const searchInput = document.getElementById("searchInput");
-const resultsDiv = document.getElementById("results");
+const searchBtn = document.getElementById('searchBtn');
+const clearBtn = document.getElementById('clearBtn');
+const resultsDiv = document.getElementById('results');
 
-async function fetchRecommendations() {
-    const query = searchInput.value.toLowerCase().trim();
-    if (!query) return;
+searchBtn.addEventListener('click', searchRecommendation);
 
-    try {
-        const response = await fetch('travel_recommendation_api.json');
-        const data = await response.json();
+clearBtn.addEventListener('click', clearResults);
 
-        const filtered = data.places.filter(place =>
-            place.type.toLowerCase() === query
-        );
+function searchRecommendation() {
 
-        displayResults(filtered, query);
-    } catch (err) {
-        console.error("Error fetching JSON:", err);
-        resultsDiv.innerHTML = "<p>Error loading recommendations.</p>";
-    }
-}
+  const input = document
+    .getElementById('searchInput')
+    .value
+    .toLowerCase();
 
-function displayResults(items, keyword) {
-    resultsDiv.innerHTML = "";
-    if (items.length === 0) {
-        resultsDiv.innerHTML = `<p>No ${keyword} found.</p>`;
+  fetch('travel_recommendation_api.json')
+    .then(response => response.json())
+    .then(data => {
+
+      resultsDiv.innerHTML = '';
+
+      let items = [];
+
+      if(input.includes('beach')) {
+        items = data.beaches;
+      }
+
+      else if(input.includes('temple')) {
+        items = data.temples;
+      }
+
+      else if(
+        input.includes('country') ||
+        input.includes('countries')
+      ) {
+        items = data.countries;
+      }
+
+      else {
+        resultsDiv.innerHTML =
+          '<h2>No recommendations found.</h2>';
         return;
-    }
+      }
 
-    items.forEach(item => {
-        const div = document.createElement("div");
-        div.classList.add("result-card");
+      items.forEach(item => {
 
-        div.innerHTML = `
-            <img src="${item.imagesrc}" alt="${item.name}">
+        const card = document.createElement('div');
+
+        card.classList.add('card');
+
+        card.innerHTML = `
+          <img src="${item.imageUrl}" alt="${item.name}">
+
+          <div class="card-content">
             <h3>${item.name}</h3>
             <p>${item.description}</p>
+          </div>
         `;
-        resultsDiv.appendChild(div);
+
+        resultsDiv.appendChild(card);
+
+      });
+
     });
+
 }
 
 function clearResults() {
-    resultsDiv.innerHTML = "";
-    searchInput.value = "";
-}
 
-searchBtn.addEventListener("click", fetchRecommendations);
-clearBtn.addEventListener("click", clearResults);
+  resultsDiv.innerHTML = '';
+
+  document.getElementById('searchInput').value = '';
+
+}
